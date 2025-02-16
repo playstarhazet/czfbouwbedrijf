@@ -3,60 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CZF Bouwbedrijf - Professionele loodgieter en bouwspecialist in Zuid-Holland. Meer dan 15 jaar ervaring in residentiële en commerciële projecten.">
-    <meta name="keywords" content="loodgieter, bouwbedrijf, Zuid-Holland, bouwspecialist, renovatie">
+    <meta name="description" content="CZF Bouwbedrijf - Professionele loodgieter en bouwspecialist in Zuid-Holland. Meer dan 15 jaar ervaring in loodgieterswerk, sanitaire installaties en renovaties. Betrouwbaar en persoonlijk.">
+    <meta name="keywords" content="loodgieter, bouwbedrijf, Zuid-Holland, bouwspecialist, renovatie, sanitair, leidingsystemen, badkamerrenovatie, Den Haag, Rotterdam">
     <meta name="author" content="CZF Bouwbedrijf">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="nl">
+    <meta name="geo.region" content="NL-ZH">
+    <meta name="geo.placename" content="Den Haag">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="CZF Bouwbedrijf - Loodgieter & Bouwspecialist">
-    <meta property="og:description" content="Professionele loodgieter en bouwspecialist in Zuid-Holland. Meer dan 15 jaar ervaring.">
+    <meta property="og:title" content="CZF Bouwbedrijf - Professionele Loodgieter & Bouwspecialist in Zuid-Holland">
+    <meta property="og:description" content="Meer dan 15 jaar ervaring in loodgieterswerk, sanitaire installaties en renovaties. Betrouwbaar en persoonlijk.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://czfbouwbedrijf.nl">
+    <meta property="og:image" content="https://czfbouwbedrijf.nl/images/og-image.jpg">
+    <meta property="og:locale" content="nl_NL">
     
-    <title>CZF Bouwbedrijf - Loodgieter & Bouwspecialist</title>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CZF Bouwbedrijf - Loodgieter & Bouwspecialist">
+    <meta name="twitter:description" content="Professionele loodgieter en bouwspecialist in Zuid-Holland. Meer dan 15 jaar ervaring.">
+    <meta name="twitter:image" content="https://czfbouwbedrijf.nl/images/og-image.jpg">
+    
+    <title>CZF Bouwbedrijf - Professionele Loodgieter & Bouwspecialist in Zuid-Holland</title>
+    
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     
     <!-- Preload critical assets -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <div class="header-content">
-            <a href="#home">
-                <img src="logo.png" alt="CZF Bouwbedrijf Logo" class="logo">
+            <a href="#home" aria-label="Ga naar homepage" class="logo">
+                <img src="assets/logo.png" alt="CZF Bouwbedrijf Logo">
             </a>
-            <button class="mobile-menu-toggle" aria-label="Menu">
+            <button class="mobile-menu-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="main-nav">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projecten">Projecten</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <nav class="main-nav" id="main-nav" role="navigation" aria-label="Hoofdmenu">
+                <ul role="menubar">
+                    <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                    <li role="none"><a href="#projecten" role="menuitem">Projecten</a></li>
+                    <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
+    <main role="main" id="main-content">
+        <!-- Skip link dla dostępności -->
+        <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+        
+        <section id="home" class="hero" role="region" aria-labelledby="hero-title">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Welkom bij CZF Bouwbedrijf</h1>
+                    <h1 id="hero-title">Welkom bij CZF Bouwbedrijf</h1>
                     <p class="hero-subtitle">Uw betrouwbare specialist in loodgieterswerk en bouwprojecten in Zuid-Holland</p>
                     <p class="hero-description">Als ervaren vakman met meer dan 15 jaar in de bouwsector, bied ik professionele diensten voor zowel residentiële als commerciële projecten. Mijn expertise omvat specialistisch loodgieterswerk, sanitaire installaties en grootschalige bouwprojecten - van complete badkamerrenovaties tot complexe leidingsystemen in appartementencomplexen. Ik sta voor kwaliteit, betrouwbaarheid en persoonlijke service.</p>
                     <a href="#contact" class="hero-cta">Vraag een offerte aan</a>
                 </div>
                 <div class="hero-image">
-                    <img src="images/amsterdam-2/image1.jpg" alt="CZF Bouwbedrijf projecten" loading="lazy">
+                    <img src="assets/images/amsterdam-2/image1.jpg" 
+                         alt="Profesjonalne projekty budowlane i hydrauliczne CZF Bouwbedrijf" 
+                         loading="eager"
+                         width="600"
+                         height="450">
                 </div>
             </div>
         </section>
@@ -88,16 +114,28 @@
             <div class="contact-container">
                 <div class="contact-intro">
                     <h3>Laat ons uw project realiseren</h3>
-                    <p>Heeft u een bouwproject of loodgieterswerk? Neem contact op voor een vrijblijvende offerte.</p>
+                    <p>Heeft u een bouwproject of loodgieterswerk? </p></br>Neem contact op voor een vrijblijvende offerte.</p>
                 </div>
-                <form class="contact-form">
+                <form class="contact-form" role="form" aria-label="Formularz kontaktowy">
                     <div class="form-row">
-                        <input type="text" placeholder="Naam" required>
-                        <input type="email" placeholder="E-mail" required>
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" name="name" placeholder="Naam" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="E-mail" required>
+                        </div>
                     </div>
-                    <input type="tel" placeholder="Telefoonnummer">
-                    <textarea placeholder="Uw bericht" required></textarea>
-                    <button type="submit">Verstuur</button>
+                    <div class="form-group">
+                        <label for="phone">Telefoonnummer</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Telefoonnummer">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Uw bericht</label>
+                        <textarea id="message" name="message" placeholder="Uw bericht" required></textarea>
+                    </div>
+                    <button type="submit" aria-label="Verstuur formulier">Verstuur</button>
                 </form>
             </div>
         </section>
@@ -111,7 +149,7 @@
                 <p><strong>Adres:</strong> Drebbelstraat 177, 2522DA Den Haag</p>
             </div>
             <a href="#home" class="footer-logo">
-                <img src="logo.png" alt="CZF Bouwbedrijf Logo" class="logo">
+                <img src="assets/logo.png" alt="CZF Bouwbedrijf Logo" class="logo">
             </a>
             <div class="footer-info">
                 <p>&copy; 2024 CZF Bouwbedrijf. Alle rechten voorbehouden.</p>
@@ -119,6 +157,35 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CZF Bouwbedrijf",
+        "image": "https://czfbouwbedrijf.nl/logo.png",
+        "description": "Professionele loodgieter en bouwspecialist in Zuid-Holland met meer dan 15 jaar ervaring in loodgieterswerk, sanitaire installaties en renovaties.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Drebbelstraat 177",
+            "addressLocality": "Den Haag",
+            "postalCode": "2522DA",
+            "addressCountry": "NL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.0627",
+            "longitude": "4.3207"
+        },
+        "url": "https://czfbouwbedrijf.nl",
+        "telephone": "+31684278011",
+        "email": "czeslawfalkowski@gmail.com",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "priceRange": "$$",
+        "areaServed": ["Den Haag", "Rotterdam", "Utrecht", "Amsterdam"],
+        "serviceType": ["Loodgieterswerk", "Sanitaire installaties", "Badkamerrenovatie", "Bouwprojecten"]
+    }
+    </script>
+
+    <script src="js/script.js"></script>
 </body>
 </html> 

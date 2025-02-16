@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /#projecten
+Allow: /#contact
+
+# Zasoby, które nie powinny być indeksowane
+Disallow: /favicon/
+Disallow: /images/
+
+# Lokalizacja mapy witryny
+Sitemap: https://czfbouwbedrijf.nl/sitemap.xml 
