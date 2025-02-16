@@ -165,6 +165,35 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(lightbox);
         document.body.style.overflow = 'hidden';
         
+        // Touch handling variables
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        // Touch event handlers
+        content.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        content.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50; // minimum distance for swipe
+            const swipeLength = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeLength) > swipeThreshold) {
+                if (swipeLength > 0 && currentIndex > 0) {
+                    // Swipe right - show previous image
+                    updateImage(currentIndex - 1);
+                } else if (swipeLength < 0 && currentIndex < allImages.length - 1) {
+                    // Swipe left - show next image
+                    updateImage(currentIndex + 1);
+                }
+            }
+        }
+        
         requestAnimationFrame(() => {
             lightbox.classList.add('active');
         });
@@ -174,9 +203,9 @@ document.addEventListener('DOMContentLoaded', function() {
             counter.textContent = `${newIndex + 1} / ${allImages.length}`;
             currentIndex = newIndex;
             
-            // Update navigation buttons
-            prevButton.style.display = newIndex === 0 ? 'none' : 'block';
-            nextButton.style.display = newIndex === allImages.length - 1 ? 'none' : 'block';
+            // Always show navigation buttons on mobile
+            prevButton.style.display = currentIndex === 0 ? 'none' : 'flex';
+            nextButton.style.display = currentIndex === allImages.length - 1 ? 'none' : 'flex';
         }
         
         const closeLightbox = () => {
@@ -275,5 +304,34 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.transform = 'translateY(20px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(section);
+    });
+
+    // Mobile Menu
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target) && mainNav.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
     });
 }); 

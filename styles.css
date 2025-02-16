@@ -423,6 +423,7 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
     text-align: left;
+    padding-bottom: 2rem;
 }
 
 .footer-contact a {
@@ -456,7 +457,7 @@ footer {
     width: 100%;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
+    padding-top: 2rem;
 }
 
 .footer-info p {
@@ -635,6 +636,48 @@ footer {
         --spacing-lg: 1.5rem;
         --spacing-md: 1rem;
     }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--white);
+        transition: right var(--transition-normal);
+        box-shadow: var(--shadow-md);
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
 }
 
 @media (max-width: 480px) {
@@ -739,14 +782,15 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
+    z-index: 2;
 }
 
 .lightbox-nav.prev {
-    left: -70px;
+    left: 1rem;
 }
 
 .lightbox-nav.next {
-    right: -70px;
+    right: 1rem;
 }
 
 .lightbox-nav:hover {
@@ -764,6 +808,20 @@ footer {
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox-content {
+        width: 90%;
+        touch-action: pan-y pinch-zoom;
+    }
 }
 
 /* Performance Optimizations */
@@ -844,4 +902,66 @@ footer {
 
 [aria-hidden="true"] {
     display: none;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: var(--z-header);
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: var(--transition-normal);
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--white);
+        transition: right var(--transition-normal);
+        box-shadow: var(--shadow-md);
+    }
+
+    .main-nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
 } 
